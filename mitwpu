@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CAS Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+/* Container */
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: #2f3e75;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Login */
+.login-box {
+    padding: 20px;
+    text-align: center;
+}
+
+.login-box h1 {
+    color: #d43f5e;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    display: none;
+}
+
+/* Grade Card */
+#reportCard {
+    display: none;
+    padding: 20px;
+}
+
+.grade-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.info {
+    margin-top: 15px;
+}
+
+.info div {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 6px;
+    text-align: center;
+}
+
+.footer {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.footer div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="container" id="loginPage">
+    <div class="header">
+        <h3>College Administration System (CAS)</h3>
+    </div>
+
+    <div class="login-box">
+        <h1>Login</h1>
+
+        <input type="email" id="email" placeholder="User id">
+        <input type="password" id="password" placeholder="Password">
+
+        <br>
+
+        <button onclick="login()">Login</button>
+        <button onclick="resetForm()">Reset</button>
+
+        <p class="error" id="errorMsg">Invalid Email or Password</p>
+    </div>
+</div>
+
+<!-- REPORT CARD -->
+<div class="container" id="reportCard">
+
+    <div class="grade-title">GRADE - CARD</div>
+
+    <p style="text-align:center;"><b>Bachelor Of Business Administration (International Business)</b></p>
+
+    <div class="info">
+        <div><span>Name of the Student</span><span>Gurpreet Gurmeetsing Rajpal</span></div>
+        <div><span>Permanent Register Number</span><span><b>1062233306</b></span></div>
+        <div><span>Father's Name</span><span>Gurmeet</span></div>
+        <div><span>Mother's Name</span><span>Harjit</span></div>
+        <div><span>Semester</span><span>05</span></div>
+        <div><span>Month and Year</span><span>November 2025</span></div>
+    </div>
+
+    <table>
+        <tr>
+            <th>Sl No.</th>
+            <th>Course Code</th>
+            <th>Credits</th>
+            <th>Course Title</th>
+            <th>Grade</th>
+            <th>Grade Point</th>
+        </tr>
+
+        <tr><td>1</td><td>BIB3PM01A</td><td>3</td><td>Foreign Exchange Operations</td><td>B+</td><td>21</td></tr>
+        <tr><td>2</td><td>BIB3PM02A</td><td>3</td><td>Foreign Language German - I</td><td>A</td><td>24</td></tr>
+        <tr><td>3</td><td>BIB3PM03A</td><td>2</td><td>WTO and Trading Blocs</td><td>B</td><td>12</td></tr>
+        <tr><td>4</td><td>BIB3PE13A</td><td>4</td><td>International Financial Management</td><td>B+</td><td>21</td></tr>
+        <tr><td>5</td><td>BIB3PR01A</td><td>4</td><td>Internship</td><td>A</td><td>32</td></tr>
+        <tr><td>6</td><td>BIB3PR02A</td><td>1</td><td>Project Based Learning - III</td><td>A</td><td>8</td></tr>
+        <tr><td>7</td><td>PCE3UC03A</td><td>2</td><td>Managing Conflicts Peacefully: Tools and Techniques</td><td>A+</td><td>18</td></tr>
+        <tr><td>8</td><td>MAC3UE01A</td><td>4</td><td>Leveraging Social Media for Personal Branding</td><td>A+</td><td>36</td></tr>
+    </table>
+
+    <div class="footer">
+        <div><span>Medium of Instruction: English</span><span>Semester Credits Earned: 23</span></div>
+        <div><span>Remark: PASS</span><span>GPA: 7.70 | CGPA: 6.57</span></div>
+    </div>
+
+</div>
+
+<script>
+function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "gurpreetrajpal@mitwpu.edu.in" && password === "sob2026") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("reportCard").style.display = "block";
+    } else {
+        document.getElementById("errorMsg").style.display = "block";
+    }
+}
+
+function resetForm() {
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("errorMsg").style.display = "none";
+}
+</script>
+
+</body>
+</html>
